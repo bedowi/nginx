@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html>
+   <head>
+   <link rel="stylesheet" href="unreal_html5_player_styles_v1.css" />
+   <script src="unreal_html5_player_script_v2.js" type="text/javascript"></script>
+   </head>
+
+   <body>
+   <br><br>
+   <div align=center>
+
+   <UnrealHTML5VideoPlayer id="UnrealPlayer1"></UnrealHTML5VideoPlayer> <!--This is the player element, don't modify anything on this line except the unique ID of the player-->
+
+   <!--
+   The below function call creates Unreal HTML5 player:
+   RunPlayer(strVideoPlayerID, intVideoWidth, intVideoHeight, strServerIP, intServerPort, boolSecureWebsocket, strOrArrayLiveAlias, strSecureToken, boolAutoPlay, boolShowControls, intLocalSeekMinutes, strPosterURL, boolBigButtons);
+   
+   strVideoPlayerID:          ID of player element on the webpage. If you have multiple players on the webpage, be sure to assign them different IDs.
+   intVideoWidth:             Width of player in pixels.
+   intVideoHeight:            Height of player in pixels.
+   strServerIP:               IP Address of Unreal Media Server.
+   intServerPort:             Port of Unreal Media Server, either for regular or for secure connections.
+   boolSecureWebsocket:       If true then you must have a valid SSL certificate configured on the server computer.
+   strOrArrayLiveAlias:       Alias of the live broadcast. Or an array of alias names for adaptive streaming. The array should have highest bitrate alias coming first and lowest bitrate alias coming last.
+   strSecureToken:            Secure token such as Session ID for Session-based authentication. Empty string means no secure token is used.
+   boolAutoPlay:              Whether to start playing as soon as webpage loads. Ignored and set to false when playing on mobile devices.
+   boolShowControls:          Whether to display controls. If boolAutoPlay is false then this parameter is ignored and set to true.
+   intLocalSeekMinutes:       Amount of minutes to keep in local buffer. This parameter is ignored if there is an active server-side timeshift. User will be able to seek in live stream within this time period. Recommended setting is 1-10 minutes. Browsers may evict data earlier than this setting, based on stream bitrate.
+   strPosterURL:              URL of the poster image. Empty string means no poster image is used.
+   boolBigButtons:            Whether to display regular or large buttons.
+   -->
+
+   <script type="text/javascript">
+       if ("MediaSource" in window && "WebSocket" in window)
+           RunPlayer("UnrealPlayer1", 800, 600, "127.0.0.1", 5119, false, "webcam", "", false, true, 1, "", false);
+       else
+           document.getElementById("UnrealPlayer1").innerHTML = "Media Source Extensions or Websockets are not supported in your browser.";
+   </script>
+  
+   </div>
+      
+   </body>
+</html>

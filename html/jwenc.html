@@ -1,0 +1,14 @@
+<script type="text/javascript" src="http://localhost/jwplayer/jwplayer2.js"></script>
+<script type="text/javascript">jwplayer.key="8mWtzhlmLrKMBVzkQdffGslCY0+dDsxrvmCNo0gwydA=";</script>
+			<div id='my-video'></div>
+<!-- Script to display video file in the player div -->
+<script type='text/javascript'>
+ jwplayer('my-video').setup({
+        file: "http://content.jwplatform.com/manifests/'+file+'.m3u8",
+width: '100%',
+height: '100%',
+'advertising': {},
+aspecratio: '16:9',
+primary: 'html5'
+});
+</script>

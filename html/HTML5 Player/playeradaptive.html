@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML>
+<html>
+   <head>
+   <link rel="stylesheet" href="unreal_html5_player_styles_v1.css" />
+   <script src="unreal_html5_player_script_v2.js" type="text/javascript"></script>
+   </head>
+
+   <body>
+   <br><br>
+   <div align=center>
+
+   <!--
+   This player is initialized with 3 aliases: "webcamrtmp", "webcamrtmp_2", "webcamrtmp_3"
+   Adobe FMLE publishes 3 streams to a broadcast named webcamrtmp, each with different bitrate
+   The player will perform automatic stream switching based on streaming performace 
+   -->
+
+   <UnrealHTML5VideoPlayer id="UnrealPlayer1"></UnrealHTML5VideoPlayer>
+
+   <script type="text/javascript">
+       if ("MediaSource" in window && "WebSocket" in window)
+           RunPlayer("UnrealPlayer1", 400, 400, "10.0.0.140", 5119, false, ["webcamrtmp", "webcamrtmp_2", "webcamrtmp_3"], "", false, true, 1, "", false);
+       else
+           document.getElementById("UnrealPlayer1").innerHTML = "Media Source Extensions or Websockets are not supported in your browser.";
+   </script>
+  
+   </div>
+      
+   </body>
+</html>
